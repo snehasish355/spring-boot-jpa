@@ -12,7 +12,7 @@ public class EmployeeRepositoryTest {
 
     @Test
     public void addEmployee() {
-        Employee ee = Employee.builder().name("Subhash").build();
+        Employee ee = Employee.builder().name("Papai").build();
         repo.save(ee);
     }
 }
