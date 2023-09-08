@@ -24,6 +24,14 @@ public class RelationrepositoryTest {
     }
 
     @Test
+    public void fetch() {
+        Customer cc = repo.findById(1).get();
+        System.out.println(cc.getName());
+        System.out.println(cc.getNumbers().toString());
+
+    }
+
+    @Test
     void delete() {
         repo.deleteAll();
     }

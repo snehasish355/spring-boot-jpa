@@ -23,7 +23,7 @@ public class Customer {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer", fetch = FetchType.EAGER)
     private Set<PhoneNumber> numbers;
 
     public void addPhoneNumber(PhoneNumber number) {
@@ -37,5 +37,4 @@ public class Customer {
         }
 
     }
-
 }
