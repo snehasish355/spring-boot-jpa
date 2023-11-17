@@ -1,21 +1,23 @@
 package com.boot.jpa.findBy;
 
-import org.junit.jupiter.api.Test;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.List;
 
-@SpringBootTest
-public class ItemRepositoryTest {
+@RestController
+public class Controller {
 
     @Autowired
     private ItemRepository repo;
 
+    @GetMapping(value = "/saveAll")
+    @Transactional
+    public String saved(){
 
-    @Test
-    public void testSaveAll() {
         List<Item> list = Arrays.asList(
                 Item.builder().name("Xiaomi").desc("Good phone").price(100).build(),
                 Item.builder().name("Xiaomi").desc("Good phone").price(200).build(),
@@ -27,7 +29,7 @@ public class ItemRepositoryTest {
         );
 
         repo.saveAll(list);
+
+        return "Success";
     }
-
-
 }

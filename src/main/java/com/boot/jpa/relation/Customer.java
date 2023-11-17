@@ -23,7 +23,8 @@ public class Customer {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer", fetch = FetchType.EAGER)
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer") // By default is Lazy loading
     private Set<PhoneNumber> numbers;
 
     public void addPhoneNumber(PhoneNumber number) {

@@ -1,10 +1,15 @@
-package com.boot.jpa.findBy;
+package com.boot.jpa.redis;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 @Data
 @Builder
@@ -12,11 +17,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "product")
-public class Item {
+@Table(name = "PRODUCT")
+public class CacheProduct implements Serializable {
 
     @Id
-    @GeneratedValue
     private int id;
     private String name;
     @Column(name = "description")

@@ -1,5 +1,6 @@
 package com.boot.jpa.relation;
 
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,8 +25,17 @@ public class RelationrepositoryTest {
     }
 
     @Test
-    public void fetch() {
-        Customer cc = repo.findById(1).get();
+    public void fetchEager() {
+        Customer cc = repo.findById(3).get();
+        System.out.println(cc.getName());
+        System.out.println(cc.getNumbers().toString());
+
+    }
+
+    @Test
+    @Transactional
+    public void fetchLazy() {
+        Customer cc = repo.findById(4).get();
         System.out.println(cc.getName());
         System.out.println(cc.getNumbers().toString());
 
